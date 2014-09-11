@@ -1,44 +1,12 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-<title>DboySlides slides</title>
+<title>DboySlides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js/css/reveal.css">
-<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
-
-<!-- For syntax highlighting -->
-<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = 'reveal.js/css/print/pdf.css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-
-</script>
-
-<!--[if lt IE 9]>
-<script src="reveal.js/lib/js/html5shiv.js"></script>
-<![endif]-->
-
-<!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
 
 <style type="text/css">
     .clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;content:"";line-height:0}
@@ -1650,76 +1618,63 @@ span#checkpoint_status,span#autosave_status{font-size:small}
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-html {
-  overflow-y: auto;
+body {
+  overflow: visible;
+  padding: 8px;
 }
-.reveal {
-  font-size: 160%;
+
+div#notebook {
+  overflow: visible;
+  border-top: none;
 }
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-div.input_area {
-  padding: 0.06em;
-}
-div.code_cell {
-  background-color: transparent;
-}
-div.prompt {
-  width: 11ex;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  text-align: right;
-}
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-div.output_prompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-.rendered_html p {
-  text-align: inherit;
+
+@media print {
+  div.cell {
+    display: block;
+    page-break-inside: avoid;
+  } 
+  div.output_wrapper { 
+    display: block;
+    page-break-inside: avoid; 
+  }
+  div.output { 
+    display: block;
+    page-break-inside: avoid; 
+  }
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-</head>
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
 
+</head>
 <body>
-<div class="reveal">
-<div class="slides">
-<section>
-    <section>
-    
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1730,8 +1685,7 @@ Large Scale Mining Strategies &amp; Tools
 </font>
 </div>
 </div>
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1749,8 +1703,7 @@ Before we move on, let&#39;s take a peek on the data.
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1789,8 +1742,6 @@ Wall time: 853 µs
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -1824,8 +1775,6 @@ Test set size: 6042135
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1836,8 +1785,7 @@ Large Scale Mining Strategies &amp; Tools
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1852,8 +1800,6 @@ What&#39;s wrong with that?
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1865,8 +1811,6 @@ What&#39;s wrong with that?
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1878,8 +1822,6 @@ What&#39;s wrong with that?
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1891,8 +1833,6 @@ What&#39;s wrong with that?
 </div>
 </div>
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1904,8 +1844,7 @@ Here comes one important question: <br>
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1917,8 +1856,6 @@ Here comes one important question: <br>
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1930,10 +1867,6 @@ Or.....What can you do?
 </div>
 </div>
 </div>
-    </div></section>
-    </section><section>
-    <section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1944,8 +1877,7 @@ Useful Tools
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1955,8 +1887,6 @@ Useful Tools
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1968,8 +1898,6 @@ Useful Tools
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1981,8 +1909,6 @@ Useful Tools
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1994,8 +1920,6 @@ Useful Tools
 </div>
 </div>
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2008,8 +1932,7 @@ Useful Tools
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2026,8 +1949,6 @@ Let&#39;s take a look of few examples!
 </div>
 </div>
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2038,8 +1959,7 @@ Example 1: build a barray!
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2055,8 +1975,6 @@ In&nbsp;[98]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2094,8 +2012,6 @@ barray((1000000,), int64)
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2109,8 +2025,6 @@ which makes barray be really good at handling BIG data.
 </div>
 </div>
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2121,8 +2035,7 @@ Here we can see that a barray has following attributes:
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2134,8 +2047,6 @@ Here we can see that a barray has following attributes:
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2147,8 +2058,6 @@ Here we can see that a barray has following attributes:
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2160,8 +2069,6 @@ Here we can see that a barray has following attributes:
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2173,8 +2080,6 @@ Here we can see that a barray has following attributes:
 </div>
 </div>
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2209,8 +2114,6 @@ In&nbsp;[100]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2245,8 +2148,6 @@ In&nbsp;[101]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2281,8 +2182,6 @@ dtype(&apos;int64&apos;)
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2357,8 +2256,7 @@ In&nbsp;[103]:
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2372,8 +2270,7 @@ Well....you can refer to this <a href=http://continuum.io/blog/blz-format>docume
   <br></p>
 </div>
 </div>
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2384,8 +2281,7 @@ Example 2: Convert a barray into numpy ndarray!
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2421,8 +2317,6 @@ array([ 369,  370,  371, ..., 9997, 9998, 9999])
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2457,8 +2351,6 @@ numpy.ndarray
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2493,10 +2385,6 @@ dtype(&apos;int64&apos;)
 </div>
 
 </div>
-    </div></section>
-    </section><section>
-    <section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2505,8 +2393,7 @@ dtype(&apos;int64&apos;)
 <h1 id="blz-btable">BLZ: btable</h1>
 </div>
 </div>
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2518,8 +2405,7 @@ Example 1: build a btable!
 <br></p>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2538,8 +2424,6 @@ In&nbsp;[107]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2557,8 +2441,6 @@ In&nbsp;[108]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2605,8 +2487,6 @@ btable((30,), [(&apos;Id&apos;, &apos;&lt;i8&apos;), (&apos;Math&apos;, &apos;&l
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2642,8 +2522,7 @@ array([(2, 57.56910997382495), (3, 96.93190100431353),
 </div>
 </div>
 
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2679,8 +2558,6 @@ array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2722,8 +2599,6 @@ array([ 14.77573538,  57.56910997,  96.931901  ,  39.08604362,
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2734,8 +2609,7 @@ Fancy Indexing
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2772,8 +2646,6 @@ array([(2, 57.56910997382495), (11, 20.9456352689398),
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2809,8 +2681,6 @@ array([(15, 89.91357952391664), (22, 80.52813515339655)],
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2821,8 +2691,7 @@ Add and Delete Column
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2838,8 +2707,6 @@ In&nbsp;[121]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2855,8 +2722,6 @@ In&nbsp;[125]:
 </div>
 
 </div>
-    </div><div class="fragment">
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2901,8 +2766,6 @@ array([(1, 14.775735379325916, 67.55843915790372),
 </div>
 
 </div>
-    </div></section><section>
-    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -2949,8 +2812,7 @@ btable((30,), [(&apos;Id&apos;, &apos;&lt;i8&apos;), (&apos;Math&apos;, &apos;&l
 </div>
 </div>
 
-</div></section><section>
-    
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2961,8 +2823,7 @@ Iteration Over btable
 </font>
 </div>
 </div>
-</div><div class="fragment">
-    
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
@@ -3024,65 +2885,7 @@ row(Id=30, Math=58.67009987885725)
 </div>
 
 </div>
-    </div></section>
-    </section>
-</div>
-</div>
-
-<script src="reveal.js/lib/js/head.min.js"></script>
-
-<script src="reveal.js/js/reveal.js"></script>
-
-<script>
-
-// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-controls: true,
-progress: true,
-history: true,
-
-theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
-
-// Optional libraries used to extend on reveal.js
-dependencies: [
-{ src: "reveal.js/lib/js/classList.js", condition: function() { return !document.body.classList; } },
-{ src: "reveal.js/plugin/highlight/highlight.js", async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-{ src: "reveal.js/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
-]
-});
-</script>
-
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
-<script>
-Reveal.addEventListener( 'slidechanged', function( event ) {
-  window.scrollTo(0,0);
-  MathJax.Hub.Rerender(event.currentSlide);
-});
-</script>
-
+    </div>
+  </div>
 </body>
-
 </html>
