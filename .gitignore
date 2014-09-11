@@ -36,11 +36,13 @@ data
 *.pickle
 
 
-
+data.tar.bz2
 
 dev_ipynbs/.ipynb_checkpoints/
+ipynbs/.ipynb_checkpoints/
+
 dist/
-hunkaggle.egg-info/
+nanodata2014.egg-info/
 build/
 
 local_settings.py

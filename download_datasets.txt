@@ -1,0 +1,25 @@
+Dataset:
+
+Hello! Kaggle!
+https://www.kaggle.com/c/afsis-soil-properties/data
+https://www.kaggle.com/c/titanic-gettingStarted/data
+https://www.kaggle.com/c/bike-sharing-demand/data
+
+PCA & RBM & PLS (Introduction to Dimension Reduction) :
+https://www.kaggle.com/c/digit-recognizer/data
+
+Text Mining:
+https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews/data
+
+Large Scale Mining:
+https://www.kaggle.com/c/criteo-display-ad-challenge/data
+
+
+Please Download (before class):
+https://drive.google.com/folderview?id=0B1sQXBHoFTCdby1hb3BTa1JvanM&usp=sharing
+
+
+Parallel Decompression:
+http://askubuntu.com/questions/214458/any-linux-command-to-perform-parallel-decompression-of-tar-bz2-file
+tar -I lbzip2 -xvf <file.tar.bz2>
+
