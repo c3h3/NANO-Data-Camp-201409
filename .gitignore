@@ -1,0 +1,56 @@
+
+bin/rfc_first1000000_mss20_ne170.model
+bin/rfc_predict_prob/
+
+
+# Python #
+##########
+*.pyc
+local_settings.py
+
+# IPython Notebook #
+####################
+.ipynb_checkpoints
+.python-version
+
+# OS generated files #
+######################
+.DS_Store
+
+# R related #
+#############
+
+
+# eclipse related #
+###################
+.project
+.pydevproject
+
+# dataset related #
+###################
+*.csv
+data
+
+# pickle files      #
+#####################
+*.pickle
+
+
+
+
+dev_ipynbs/.ipynb_checkpoints/
+dist/
+hunkaggle.egg-info/
+build/
+
+local_settings.py
+
+*.col
+*.zip
+*.tar.gz
+*/.DS_Store
+.DS_Store
+
+
+data/test_blzs/
+data/train_blzs/
