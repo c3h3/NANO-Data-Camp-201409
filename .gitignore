@@ -37,6 +37,9 @@ data
 
 
 data.tar.bz2
+orangetables/
+orangetables.tar.gz
+
 
 dev_ipynbs/.ipynb_checkpoints/
 ipynbs/.ipynb_checkpoints/
