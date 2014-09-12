@@ -1,4 +1,3 @@
-
 bin/rfc_first1000000_mss20_ne170.model
 bin/rfc_predict_prob/
 
@@ -28,8 +27,8 @@ local_settings.py
 
 # dataset related #
 ###################
-*.csv
-data
+#*.csv
+#data
 
 # pickle files      #
 #####################
