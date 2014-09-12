@@ -3076,10 +3076,9 @@ When Celery is working on your jobs: <br>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="celery-one-simple-way-to-parallelize-your-code-">Celery: One Simple Way to Parallelize Your Code.</h1>
 <p>  <br></p>
-<p><font size="6">
+<p><font size="6" color=#3066C4>
 The Basic Structure of a Celery Applictation:
 </font>
-  <br>
   <br></p>
 <p><font size="6">
 Suppose you have a celery application named predict_test_celery.
@@ -3199,6 +3198,22 @@ A First Look of celery.py:
 </div>
 </div>
 </div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<font size="6">
+.........
+<a href=https://github.com/c3h3/NANO-Data-Camp-201409/blob/master/ipynbs/blz_Celery/celery_example/celery.py>
+Codes
+</a>
+</font>
+</div>
+</div>
+</div>
     </div></section><section>
     
 <div class="cell border-box-sizing text_cell rendered">
@@ -3219,6 +3234,22 @@ A First Look of tasks.py:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><img src="https://raw.githubusercontent.com/c3h3/NANO-Data-Camp-201409/master/dev_ipynbs/Dboy_dev/image/tasks_celery.png" width=700 height=700></p>
+</div>
+</div>
+</div>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<font size="6">
+.........
+<a href="https://github.com/c3h3/NANO-Data-Camp-201409/blob/master/ipynbs/blz_Celery/celery_example/tasks.py">
+Codes
+</a>
+</font>
 </div>
 </div>
 </div>
@@ -3268,7 +3299,7 @@ Excersice: Parallelized Writing Files
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><font size="6">Make a celery.py file</font></li>
+<li><font size="6">Make a celery.py file.</font></li>
 </ul>
 </div>
 </div>
@@ -3281,12 +3312,84 @@ Excersice: Parallelized Writing Files
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><font size="6">Make a tasks.py</font></li>
+<li><font size="6">Make a tasks.py and write a function named <font color="green">multi_write(path,content)</font>.</font></li>
 </ul>
 </div>
 </div>
 </div>
-    </div></section>
+    </div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li><font size="6">Put above three .py files in a dirctory named <font color="green">multi_write_celery</font>.</font></li>
+</ul>
+</div>
+</div>
+</div>
+    </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<font size="6" color=#3066C4>
+How to Wake Up the Celery Worker
+</font>
+  <br>
+  <br>
+<font size="6">
+celery -A multi_write worker -n worker1.%h --concurrency 1 -l info
+</font>
+</div>
+</div>
+</div><div class="fragment">
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img width=700 height=700 src=https://raw.githubusercontent.com/c3h3/NANO-Data-Camp-201409/master/dev_ipynbs/Dboy_dev/image/celery.png /></p>
+</div>
+</div>
+</div>
+    </div></section><section>
+    
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<font size="6">
+1. Copy and paste following code into a fire_up.py file. <br>
+  <br>
+2. Put fire_up.py under the same directory which contains multi_write_celery.<br>
+  <br>
+3. Change the working directory to that directory.<br>
+  <br>
+4. type <code>python fire_up.py</code>
+</font>
+
+<p>  <br></p>
+<pre><code>from multi_write_celery import multi_write
+
+jobs = []
+for ind in range(10):
+    job = (&quot;No_{ind}.csv&quot;.format(ind=ind), &quot;I&#39;m file No.{ind}!!&quot;.format(ind=ind))
+    jobs.append(job)
+
+for file, content in jobs:
+    multi_write.delay(file, content)
+</code></pre><p>  <br></p>
+<font color="red" size="6">Be Careful About The Indent!!</font>
+</div>
+</div>
+</div></section>
     </section>
 </div>
 </div>
