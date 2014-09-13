@@ -1,0 +1,1 @@
+{"dtype": "float64", "bparams": {"shuffle": true, "clevel": 5}, "chunklen": 8192, "dflt": 0.0, "expectedlen": 1000000}
