@@ -1,6 +1,8 @@
 bin/rfc_first1000000_mss20_ne170.model
 bin/rfc_predict_prob/
+data/
 
+*.csv
 
 # Python #
 ##########
