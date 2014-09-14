@@ -3,8 +3,8 @@ from celery import Celery
 
 app = Celery(
 	'multi_write_celery',
-    broker='mongodb://220.133.188.246',
-    backend='mongodb://220.133.188.246',
+    broker='mongodb://140.116.21.177',
+    backend='mongodb://140.116.21.177',
     include=['multi_write_celery.tasks']
 )
 
